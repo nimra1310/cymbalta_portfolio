@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Sun Crop Group - About Us</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 5%;
+            background-color: white;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 1000;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 60px;
+        }
+
+        .logo-text {
+            margin-left: 10px;
+        }
+
+        .logo-text h1 {
+            color: #3A59D1;
+            /* Deep Blue */
+            font-size: 24px;
+            font-weight: bold;
+            line-height: 1;
+            margin: 0;
+        }
+
+        .logo-text p {
+            color: #333;
+            font-size: 14px;
+            margin: 0;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            padding: 0 15px;
+        }
+
+        .nav-links a {
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #3A59D1;
+            /* Deep Blue */
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        .hamburger .line {
+            width: 30px;
+            height: 3px;
+            background-color: #333;
+            margin: 6px 0;
+            transition: 0.4s;
+        }
+
+        /* Dropdown styles */
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-toggle {
+            cursor: pointer;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: white;
+            min-width: 200px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1001;
+            padding: 0;
+            list-style: none;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        .dropdown-menu li {
+            padding: 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .dropdown-menu a {
+            padding: 12px 15px;
+            display: block;
+            color: #333;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: #f8f8f8;
+        }
+
+
+
+        .hero {
+            background-color: #f8f8f8;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            color: #3A59D1;
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .about-content {
+            padding: 60px 0;
+        }
+
+        .section {
+            margin-bottom: 50px;
+        }
+
+        .section h2 {
+            color: #3A59D1;
+            font-size: 28px;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .section h2:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 60px;
+            height: 3px;
+            background-color: #3A59D1;
+        }
+
+        .stats-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-top: 40px;
+        }
+
+        .stat-card {
+            background-color: #f8f8f8;
+            padding: 30px 20px;
+            text-align: center;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            flex: 1 1 45%;
+            min-width: 250px;
+            margin: 15px;
+        }
+
+        .stat-number {
+            font-size: 42px;
+            color: #3A59D1;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-size: 18px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .values-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .value-item {
+            flex: 1 1 30%;
+            min-width: 250px;
+            margin: 15px;
+            padding: 20px;
+            background-color: #f8f8f8;
+            border-radius: 8px;
+        }
+
+        .value-item h3 {
+            color: #3A59D1;
+            margin-bottom: 15px;
+            font-size: 22px;
+        }
+
+        .founder-section {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            margin-top: 40px;
+        }
+
+        .founder-img {
+            flex: 1 1 35%;
+            min-width: 300px;
+        }
+
+        .founder-img img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .founder-info {
+            flex: 1 1 65%;
+            padding: 0 30px;
+        }
+
+        .founder-info h3 {
+            font-size: 24px;
+            color: #3A59D1;
+            margin-bottom: 10px;
+        }
+
+        .founder-info h4 {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 20px;
+            font-weight: normal;
+        }
+
+        /* Footer Styles */
+        .footer {
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 40px 20px;
+            background-color: #3A59D1;
+            background-size: cover;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-main {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 30px;
+        }
+
+        .footer-section {
+            margin-bottom: 30px;
+        }
+
+        .footer-section h3 {
+            color: #F5C45E;
+            /* Light Yellow */
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 15px;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .footer-links a:hover {
+            color: #F5C45E;
+            /* Light Yellow */
+        }
+
+        .footer-links a::before {
+            content: "";
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            margin-right: 10px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23F5C45E' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='5' y1='12' x2='19' y2='12'%3E%3C/line%3E%3Cpolyline points='12 5 19 12 12 19'%3E%3C/polyline%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+
+        .contact-icon {
+            color: #F5C45E;
+            /* Light Yellow */
+            margin-right: 10px;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .toll-free {
+            background-color: #F5C45E;
+            /* Light Yellow */
+            color: white;
+            padding: 12px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            display: inline-block;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .footer-bottom {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .footer-logo img {
+            width: 60px;
+            height: 60px;
+            margin-right: 15px;
+        }
+
+        .footer-credits {
+            display: flex;
+            align-items: center;
+        }
+
+        .footer-credits span {
+            margin-right: 5px;
+        }
+
+        .developed-by {
+            color: #F5C45E;
+            /* Light Yellow */
+            text-decoration: none;
+        }
+
+        /* Responsive design */
+        @media screen and (max-width: 768px) {
+           
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 80px;
+                left: 0;
+                right: 0;
+                background-color: white;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+                padding: 20px 0;
+                z-index: 1000;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                padding: 15px 5%;
+                border-bottom: 1px solid #eee;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .dropdown-menu {
+                position: static;
+                box-shadow: none;
+                background-color: #f8f8f8;
+                width: 100%;
+                padding-left: 15px;
+            }
+
+            .dropdown-menu li {
+                padding: 0;
+            }
+
+            .dropdown:hover .dropdown-menu {
+                display: none;
+                /* Override hover behavior on mobile */
+            }
+
+            .dropdown-menu.active {
+                display: block;
+            }
+
+            .dropdown-toggle::after {
+                content: "+";
+                margin-left: 5px;
+            }
+
+            .dropdown-toggle.active::after {
+                content: "-";
+            }
+
+
+            .hero h1 {
+                font-size: 28px;
+            }
+
+            .hero p {
+                font-size: 16px;
+                padding: 0 20px;
+            }
+
+            .section {
+                padding: 15px;
+            }
+
+            .section h2 {
+                font-size: 24px;
+            }
+
+            .stat-card {
+                flex: 1 1 100%;
+                margin: 10px 0;
+            }
+
+            .value-item {
+                flex: 1 1 100%;
+                margin: 10px 0;
+            }
+
+            .founder-section {
+                flex-direction: column;
+            }
+
+            .founder-img {
+                margin-bottom: 30px;
+                min-width: 100%;
+            }
+
+            .founder-info {
+                padding: 0;
+            }
+
+            .footer-main {
+                flex-direction: column;
+            }
+
+            .footer-section {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-logo {
+                justify-content: center;
+                margin-bottom: 15px;
+            }
+
+            .footer-credits {
+                justify-content: center;
+                margin-top: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">
+            <img src="logo.jpg" alt="" style="width: 80px; height: 60px;">
+            <div class="logo-text">
+                <h1>CORTEVA</h1>
+                <p>AgriScience</p>
+            </div>
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="aboutus.html">ABOUT US</a></li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle">PRODUCTS</a>
+                <ul class="dropdown-menu">
+                    <li><a href="product.html">Insecticides</a></li>
+                    <li><a href="herbicides.html">Herbicides</a></li>
+                    <li><a href="fungicides.html">Fungicides</a></li>
+                    <li><a href="granules.html">Granules</a></li>
+                    <li><a href="micronutrients.html">Micronutrients</a></li>
+                    <li><a href="pgrs.html">Plant Growth Regulators - PGRs</a></li>
+                </ul>
+            </li>
+            <li><a href="service.html">SERVICES</a></li>
+            <li><a href="newsandevents.html">NEWS & EVENTS</a></li>
+            <li><a href="career.html">CAREERS</a></li>
+            <li><a href="contact.html">CONTACT US</a></li>
+        </ul>
+
+        <div class="hamburger" id="hamburger">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+    </nav>
+
+
+    <div class="hero" style="background-color: #3A59D1;">
+        <div class="container">
+            <h1 style="color: #F5C45E;">ABOUT CORTEVA AGRI-SCIENCE</h1>
+            <p style="color: white;">Dedicated to creating sustainable agricultural solutions for farmers and communities across Africa.</p>
+        </div>
+    </div>
+
+    <div class="container about-content">
+        <div class="section">
+            <h2>Our Story</h2>
+            <p>Cymbalta Pakistan is not just a company—it’s a trusted leader in agricultural innovation, dedicated to
+                transforming the future of farming. Over the past three consecutive years, we’ve been driving positive
+                change in Pakistan’s agrochemical industry by providing effective, science-based solutions that boost
+                farm productivity and protect crops. Our commitment to quality, sustainability, and farmer success is at
+                the heart of everything we do, shaping a brighter agricultural future for all.
+            </p>
+            <p>Our mission is to enhance agricultural productivity and food security across the region by delivering
+                high-quality inputs and services to farmers. Through our comprehensive approach, we aim to transform the
+                agricultural landscape and improve the livelihoods of farming communities.</p>
+
+            <!-- <div class="stats-grid">
+                <div class="stat-card">
+                    <span class="stat-number">15+</span>
+                    <span class="stat-label">Years of Experience</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">300+</span>
+                    <span class="stat-label">Team Members</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">500,000+</span>
+                    <span class="stat-label">Farmers Served</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">5</span>
+                    <span class="stat-label">Countries</span>
+                </div>
+            </div> -->
+        </div>
+
+        <div class="section">
+            <h2>Our Values</h2>
+            <div class="values-grid">
+                <div class="value-item">
+                    <h3>Innovation</h3>
+                    <p>We constantly seek new and better ways to improve agricultural practices, leveraging technology
+                        and research to develop sustainable solutions.</p>
+                </div>
+                <div class="value-item">
+                    <h3>Integrity</h3>
+                    <p>We conduct our business with honesty, transparency, and accountability, building trust with all
+                        our stakeholders.</p>
+                </div>
+                <div class="value-item">
+                    <h3>Impact</h3>
+                    <p>We measure our success by the positive difference we make in farmers' lives and the communities
+                        we serve.</p>
+                </div>
+                <div class="value-item">
+                    <h3>Collaboration</h3>
+                    <p>We believe in the power of partnership and work closely with farmers, governments, and other
+                        stakeholders to achieve shared goals.</p>
+                </div>
+                <div class="value-item">
+                    <h3>Sustainability</h3>
+                    <p>We are committed to environmentally responsible practices that preserve and enhance natural
+                        resources for future generations.</p>
+                </div>
+                <div class="value-item">
+                    <h3>Excellence</h3>
+                    <p>We strive for the highest standards in all our operations, products, and services to deliver
+                        maximum value to our customers.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Our Leadership</h2>
+            <p>Corteva Agriscience is led by a dedicated team of professionals with extensive experience in agriculture,
+                business development, and sustainability.</p>
+
+            <div class="founder-section">
+                <div class="founder-img">
+                    <img src="founder.png" alt="Founder Image">
+                </div>
+                <div class="founder-info">
+                    <h3>David Johnson</h3>
+                    <h4>Founder & CEO</h4>
+                    <p>With over 25 years of experience in the agricultural sector, David founded Sun Crop Group with a
+                        vision to empower African farmers through access to quality inputs and knowledge. His leadership
+                        has been instrumental in expanding the company's operations across multiple countries and
+                        establishing partnerships with key stakeholders in the agricultural value chain.</p>
+                    <p>Under his guidance, Sun Crop Group has become a leading provider of agricultural solutions,
+                        committed to sustainable farming practices and food security in East Africa.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Our Impact</h2>
+            <p>At Sun Crop Group, we believe that improving agricultural productivity is key to addressing food security
+                challenges in Africa. By providing farmers with quality inputs, technical expertise, and market access,
+                we have helped thousands of farmers increase their yields and incomes.</p>
+            <p>Our work extends beyond commercial interests to embrace environmental sustainability and community
+                development. Through various initiatives, we promote sustainable farming practices, water conservation,
+                and soil health management to ensure the long-term viability of agricultural systems.</p>
+            <p>We are proud of the positive impact we have made on the lives of farmers and communities across the
+                regions we serve, and we remain committed to expanding our reach and deepening our impact in the years
+                to come.</p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-main">
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="service.html">Service</a></li>
+                        <li><a href="newsandevents.html">News & Events</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Other Pages</h3>
+                    <ul class="footer-links">
+                        <li><a href="career.html">Career</a></li>
+                        <li><a href="aboutus.html">About Us</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <div class="contact-item" style="display: flex; align-items: center; margin-bottom: 10px;">
+                        <div class="contact-icon phone-icon"
+                            style="background-color: transparent; margin-right: 10px; color: white;">
+                            <i class="fas fa-phone" style="font-size: 18px;"></i>
+                        </div>
+                        <div>+92-300-0531155</div>
+                    </div>
+                    <div class="contact-item" style="display: flex; align-items: center; margin-bottom: 10px;">
+                        <div class="contact-icon email-icon"
+                            style="background-color: transparent; margin-right: 10px; color: white;">
+                            <i class="fas fa-envelope" style="font-size: 18px;"></i>
+                        </div>
+                        <div>hello@cymbalta.com.pk</div>
+                    </div>
+                    <div class="contact-item" style="display: flex; align-items: center; margin-bottom: 10px;">
+                        <div class="contact-icon location-icon"
+                            style="background-color: transparent; margin-right: 10px; color: white;">
+                            <i class="fas fa-map-marker-alt" style="font-size: 18px;"></i>
+                        </div>
+                        <div>Plot No.314,Phase-II,Industrial Estate Area,Multan, Pakistan</div>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Find Us on Social Media</h3>
+                    <div class="social-media-icons" style="display: flex; justify-content: center; gap: 15px;">
+                        <a href="#" class="social-icon facebook-icon" style="display: inline-block; width: 40px; height: 40px; background-color: #F5C45E;
+                            border-radius: 50%; position: relative; transition: transform 0.3s ease;">
+                            <i class="fab fa-facebook-f"
+                                style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white;"></i>
+                        </a>
+                        <a href="https://wa.me/" class="social-icon whatsapp-icon" style="display: inline-block; width: 40px; height: 40px; background-color: #F5C45E;
+                            border-radius: 50%; position: relative; transition: transform 0.3s ease;">
+                            <i class="fab fa-whatsapp"
+                                style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white;"></i>
+                        </a>
+                        <a href="#" class="social-icon instagram-icon" style="display: inline-block; width: 40px; height: 40px; background-color: #F5C45E;
+                            border-radius: 50%; position: relative; transition: transform 0.3s ease;">
+                            <i class="fab fa-instagram"
+                                style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white;"></i>
+                        </a>
+                        <a href="#" class="social-icon youtube-icon" style="display: inline-block; width: 40px; height: 40px; background-color: #F5C45E;
+                            border-radius: 50%; position: relative; transition: transform 0.3s ease;">
+                            <i class="fab fa-youtube"
+                                style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white;"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="footer-logo">
+                    <img src="logo.jpg" alt="Suncrop Group Logo">
+                    <div>Developed By <a href="#" class="developed-by">Corteva Agriscience</a></div>
+                </div>
+                <div class="footer-credits">
+                    <span>Copyright © 2025. All Rights Reserved.</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Toggle mobile menu
+            document.getElementById('hamburger').addEventListener('click', function () {
+                document.querySelector('.nav-links').classList.toggle('active');
+            });
+
+            // Dropdown functionality for products menu on mobile
+            const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
+
+            dropdownToggles.forEach(toggle => {
+                toggle.addEventListener('click', function (e) {
+                    if (window.innerWidth <= 768) {
+                        e.preventDefault();
+                        e.stopPropagation();
+
+                        // Toggle the active class on the toggle button
+                        this.classList.toggle('active');
+
+                        // Find and toggle the dropdown menu
+                        const dropdownMenu = this.nextElementSibling;
+                        if (dropdownMenu) {
+                            dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
+                        }
+                    }
+                });
+            });
+
+            // Slider functionality
+            let slideIndex = 0;
+            const slides = document.getElementById('slides');
+            const dots = document.querySelectorAll('.dot');
+
+            // Auto slide
+            function autoSlide() {
+                slideIndex++;
+                if (slideIndex >= 3) slideIndex = 0;
+                updateSlider();
+            }
+
+            // Manual navigation
+            function currentSlide(index) {
+                slideIndex = index;
+                updateSlider();
+            }
+
+            function updateSlider() {
+                slides.style.transform = `translateX(-${slideIndex * 33.333}%)`;
+
+                // Update active dot
+                dots.forEach((dot, index) => {
+                    if (index === slideIndex) {
+                        dot.classList.add('active');
+                    } else {
+                        dot.classList.remove('active');
+                    }
+                });
+            }
+
+            // Set interval for auto sliding
+            setInterval(autoSlide, 5000);
+
+            // Make currentSlide function available globally
+            window.currentSlide = currentSlide;
+        });        
+    </script>
+</body>
+
+</html>
