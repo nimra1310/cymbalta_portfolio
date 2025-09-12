@@ -544,7 +544,47 @@
 
             .dropdown-toggle.active::after {
                 content: "-";
+           
             }
+
+            .intro-content,
+            .content-wrapper {
+                flex-direction: column !important;
+                gap: 40px !important;
+            }
+
+            .product-section {
+                padding: 0px !important;
+                padding-top: 15px ! important;
+            }
+
+            .growing-pain-section {
+                padding: 30px 15px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .intro-section {
+                padding: 20px 15px;
+            }
+
+            .text-content p {
+                font-size: 15px;
+            }
+
+            .building-image {
+                max-width: 320px;
+            }
+
+            .growing-pain-header h2 {
+                font-size: 1.8rem;
+            }
+
+            .product-section {
+                padding: 0px !important;
+                padding: 10px 15px ! important;
+            }
+        }
 
             
 
@@ -1014,6 +1054,7 @@
 </body>
 
 </html>
+
 
 
 
