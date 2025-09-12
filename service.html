@@ -170,6 +170,29 @@
             max-width: 1200px;
             margin: 0 auto;
         }
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            gap: 25px;
+        }
+
+        @media (min-width: 768px) {
+            .card-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        .gp-photo-card {
+            grid-column: 1 / -1;
+        }
+
+        .gp-card {
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
         
         /* Services Content Styles */
         .services-content {
@@ -628,10 +651,22 @@
         <!-- Field Advisory Service -->
         <section class="growing-pain-section">
         <div class="growing-pain-container">
-        <div class="service-item">
-            <div class="service-image">
-                <img src="Field advisory Services.png" alt="Field Advisory Service" onerror="this.src='https://via.placeholder.com/600x400?text=Field+Advisory+Service'">
+<div class="card-grid">
+                <div class="gp-card gp-photo-card"
+                    style="width: 100%; max-width: 1200px; margin: 0 auto; overflow: hidden;">
+                <img src="Field advisory Services.png" alt="Field Image" class="product-image"
+                     style="width: 100%; height: auto; display: block; max-height: 100vh; object-fit: contain;">
             </div>
+        </div>
+
+
+
+            
+        <div class="service-item">
+            <!--<div class="service-image">
+                <img src="Field advisory Services.png" alt="Field Advisory Service" onerror="this.src='https://via.placeholder.com/600x400?text=Field+Advisory+Service'">
+            </div>-->
+            
             <div class="service-details">
                 <h3>Field Advisory Service</h3>
                 <p>At Cymbalta Pakistan, our Field Advisory Services are designed to empower farmers with expert guidance, practical
@@ -896,6 +931,7 @@
 </body>
 
 </html>
+
 
 
 
